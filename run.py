@@ -176,11 +176,32 @@ def level_select():
         print("Invalid input. Please try again.\n")
         return level_select()
 
+def get_random_word(level):
+    '''
+    Get a random word from the specified worksheet.
+    
+    Args:
+        level (str): The difficulty level selected by the user.
+        
+    Returns:
+        str: A random word from the specified worksheet.
+    '''
+
+    #Local variable which accesses the relevant GoogleSheet by passing the parameter of level
+    worksheet = SHEET.worksheet(level)
+    #Get all values in the first column, excluding the header
+    words = worksheet.col_values(1)[1:]
+    #Return a random word in lowercase
+    return random.choice(words).lower()
+
 def main():
     #Run the introduction and associated artwork - ask the initial questions of Play? and Rules?
     intro()
     #Store the return value of level_select() to a variable for passing to other functions
     #This tells us which GoogleSheet needs to be accessed for the game selected
     selected_level = level_select()
+    #Variable to store the randomly selected word from the selected GoogleSheet
+    random_word = get_random_word(selected_level)
+    print(random_word)
 
 main()
