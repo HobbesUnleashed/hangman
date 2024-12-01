@@ -126,3 +126,8 @@ def intro():
     else:
         print("\nInvalid input. Please try again.\n")
         intro()
+
+def main():
+    intro()
+
+main()
