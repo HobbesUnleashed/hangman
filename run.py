@@ -127,6 +127,19 @@ def intro():
         print("\nInvalid input. Please try again.\n")
         intro()
 
+def help():
+    '''
+    Provide a help screen for the user - detailing the rules of the game.
+    '''
+    print("\nThe objective of the game is to guess the word before you run out of lives.")
+    print("You can guess a letter or the whole word.")
+    print("If you guess a letter that is in the word, it will be revealed.")
+    print("If you guess a letter that is not in the word, you will lose a life.")
+    print("You will not be able to guess the same letter twice - and you will not lose a life for trying to do so")
+    print("If you guess the word correctly, you win!")
+    print("If you guess the word incorrectly, you lose!")
+    print("You have 6 lives. Good luck!")
+
 def main():
     intro()
 
