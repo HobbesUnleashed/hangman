@@ -140,7 +140,47 @@ def help():
     print("If you guess the word incorrectly, you lose!")
     print("You have 6 lives. Good luck!")
 
+def level_select():
+    '''
+    Allow the user to select a level of difficulty.
+    '''
+    print("\nThere are a number of difficulty levels for you to choose from - these are listed below!")
+    print("\nPlease select a level of difficulty (enter the number of the level you want to select - e.g 1 for the simple level):")
+    print("Level 1. Simple (a word of 3 letters)")
+    print("Level 2. Easy (either a 4 or 5 letter word)")
+    print("Level 3. Intermediate (either a 6 or 7 letter word)")
+    print("Level 4. Hard (either an 8 or 9 letter word)")
+    print("Level 5. Expert (a word of 10 letters or more)\n")
+    
+    #Ask for the user choice
+    level_choice = input("> ")
+    
+    #Whatever level they choose (1-5) will return the name of the GoogleSheet that the words are stored on
+    if level_choice == "1":
+        print("You have selected Simple\n")
+        return "simple"
+    elif level_choice == "2":
+        print("You have selected Easy\n")
+        return "easy"
+    elif level_choice == "3":
+        print("You have selected Intermediate\n")
+        return "intermediate"
+    elif level_choice == "4":
+        print("You have selected Hard\n")
+        return "hard"
+    elif level_choice == "5":
+        print("You have selected Expert\n")
+        return "expert"
+    #If an option outside of numbers 1-5 is selected the error message is displayed and the level_select() function is re-run
+    else:
+        print("Invalid input. Please try again.\n")
+        return level_select()
+
 def main():
+    #Run the introduction and associated artwork - ask the initial questions of Play? and Rules?
     intro()
+    #Store the return value of level_select() to a variable for passing to other functions
+    #This tells us which GoogleSheet needs to be accessed for the game selected
+    selected_level = level_select()
 
 main()
