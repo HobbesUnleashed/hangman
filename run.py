@@ -328,4 +328,5 @@ def main():
     #Function to run the game and receives the random word and it's definition
     play_game(random_word, definition)
 
+#Runs the main() function which holds and activates the other program functions as needed
 main()
