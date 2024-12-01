@@ -218,6 +218,72 @@ def get_definition(level, word):
             #Returns the definition
             return row[1]
 
+def play_game(random_word, definition):
+    '''
+    Play the hangman game with the given random word.
+    
+    Args:
+        random_word (str): The word to be guessed by the user.
+        definition (str): The definition of the word to be displayed to the user.
+        
+    Returns:
+        None
+    '''
+
+    #Local variables to store an array of values as labelled
+    correct_guesses = []
+    incorrect_guesses = []
+    
+    while True:
+                
+        #Display hangman stage
+        #Uses the array of hangman_art and references against the number of incorrect guesses
+        #Then displays the index number of hangman_art that matches the number of incorrect guesses - this comes from later in function
+        print(hangman_art[len(incorrect_guesses)])
+        
+        #Get user's guess and convert to lowercase
+        guess = input("\nGuess a letter: ").lower()
+        
+        #Check if guess is valid
+        #Make sure the guess is one character long and is not a number
+        #Prints an error if either is incorrect
+        if len(guess) != 1 or not guess.isalpha():
+            print("\nInvalid input. Please enter a single letter.")
+            continue
+        
+        #Check if guess has already been made
+        #Checks against both the correctly and incorrectly made previous guesses
+        if guess in correct_guesses or guess in incorrect_guesses:
+            print("\nYou have already guessed that letter. Try again.")
+            continue
+        
+        #Check if guess is correct
+        if guess in random_word:
+            #Add the letter to the correct_guesses array and print message
+            correct_guesses.append(guess)
+            print(f"\nGood job! {guess} is in the word.")
+            
+            #Check if user has guessed all letters
+            if all(letter in correct_guesses for letter in random_word):
+                print(f"\nCongratulations!\nYou guessed the word: {random_word}")
+                print(f'The definition of this word is: {definition}')
+                break
+        #Checks if guess is incorrect
+        else:
+            #Add the letter to the incorrect_guesses array and print message
+            incorrect_guesses.append(guess)
+            print(f"\nSorry, {guess} is not in the word.")
+            
+            #Check if user has run out of lives - maximum of 6
+            #If incorrect_guesses array has 6 or more values
+            if len(incorrect_guesses) >= 6:
+                #Print the hangman_art of this length -1 to match the array
+                print(hangman_art[-1])
+                #Print the following messages so the user knows the game is lost, what the word is and the definition of it
+                print(f"\nGame over! You ran out of lives.\n The word was: {random_word}")
+                print(f'The definition of this word is: {definition}')
+                break
+
 def main():
     #Run the introduction and associated artwork - ask the initial questions of Play? and Rules?
     intro()
@@ -226,10 +292,10 @@ def main():
     selected_level = level_select()
     #Variable to store the randomly selected word from the selected GoogleSheet
     random_word = get_random_word(selected_level)
-    print(random_word)
     #Variable to store the definition of the randomly selected word
     #Function is passed the level/GoogleSheet and the word from it
     definition = get_definition(selected_level, random_word)
-    print(definition)
+    #Function to run the game and receives the random word and it's definition
+    play_game(random_word, definition)
 
 main()
