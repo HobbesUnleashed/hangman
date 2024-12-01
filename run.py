@@ -106,7 +106,7 @@ def intro():
     if play == "Y":
         #Print the following messages - including an option to see the rules
         print("\nGreat! Let's play!")
-        print("\nWould you like to see the rules? (Y/N)")
+        print("\nWould you like to see the rules? (Y/N)") 
         #Receive the input regarding the rules and convert to uppercase
         rules = input("> \n").upper()
         #If the user selects Y for yes
