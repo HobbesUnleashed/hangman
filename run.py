@@ -93,7 +93,7 @@ def intro():
     '''
     Provide a welcome screen for the user.
     '''
-    print("Welcome to\n")
+    print("\nWelcome to\n")
     #Print the games introduction art
     print(intro_art)
     #Print a blurb to the game
@@ -194,6 +194,30 @@ def get_random_word(level):
     #Return a random word in lowercase
     return random.choice(words).lower()
 
+def get_definition(level, word):
+    '''
+    Get the definition of a word from the specified worksheet.
+    
+    Args:
+        level (str): The difficulty level selected by the user.
+        word (str): The word for which to get the definition.
+        
+    Returns:
+        str: The definition of the word.
+    '''
+
+    #Local variable which accesses the relevant GoogleSheet by passing the parameter of level
+    worksheet = SHEET.worksheet(level)
+    #Get all values in the worksheet, excluding the header
+    rows = worksheet.get_all_values()[1:]
+    #Find the row with the specified word and return its definition
+    #Goes through each row of data
+    for row in rows:
+        #If the row - converted to lowercase - matches the randomly selected word
+        if row[0].lower() == word:
+            #Returns the definition
+            return row[1]
+
 def main():
     #Run the introduction and associated artwork - ask the initial questions of Play? and Rules?
     intro()
@@ -203,5 +227,9 @@ def main():
     #Variable to store the randomly selected word from the selected GoogleSheet
     random_word = get_random_word(selected_level)
     print(random_word)
+    #Variable to store the definition of the randomly selected word
+    #Function is passed the level/GoogleSheet and the word from it
+    definition = get_definition(selected_level, random_word)
+    print(definition)
 
 main()
