@@ -218,6 +218,32 @@ def get_definition(level, word):
             #Returns the definition
             return row[1]
 
+def display_dashes(word, correct_guesses):
+    '''
+    Display dashes corresponding to the length of the word with correctly guessed letters.
+    
+    Args:
+        word (str): The word for which dashes are to be displayed.
+        correct_guesses (list): List of correctly guessed letters.
+        
+    Returns:
+        str: A string with dashes and correctly guessed letters, with spaces between each character.
+    '''
+
+    #Local variable set to an empty string - will be populated by the function
+    display = ''
+    #Go through each letter in the random word
+    for letter in word:
+        #If the letter appears in the word
+        if letter in correct_guesses:
+            #Display the local variable, the correct letter (in the correct spot) and a space after each instance
+            display += letter + ' '
+        #Otherwise, for every letter that appears in the word, set a - and space to the local variable
+        else:
+            display += '- '
+    #Returns the word without any spaces in it for final display
+    return display.strip()
+
 def play_game(random_word, definition):
     '''
     Play the hangman game with the given random word.
@@ -235,7 +261,11 @@ def play_game(random_word, definition):
     incorrect_guesses = []
     
     while True:
-                
+
+        #Display current state of dashes
+        current_display = display_dashes(random_word, correct_guesses)
+        print(f"\nCurrent word: {current_display}")
+
         #Display hangman stage
         #Uses the array of hangman_art and references against the number of incorrect guesses
         #Then displays the index number of hangman_art that matches the number of incorrect guesses - this comes from later in function
