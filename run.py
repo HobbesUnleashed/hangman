@@ -101,14 +101,14 @@ def intro():
     #Ask if the user would like to play
     print("\nWould you like to play? (Y/N)")
     #Receive the user input and convert it to uppercase
-    play = input("> ").upper()
+    play = input("> \n").upper()
     #If the user selects Y for yes
     if play == "Y":
         #Print the following messages - including an option to see the rules
         print("\nGreat! Let's play!")
         print("\nWould you like to see the rules? (Y/N)")
         #Receive the input regarding the rules and convert to uppercase
-        rules = input("> ").upper()
+        rules = input("> \n").upper()
         #If the user selects Y for yes
         if rules == "Y":
             #Run the help function which details the rules
@@ -153,7 +153,7 @@ def level_select():
     print("Level 5. Expert (a word of 10 letters or more)\n")
     
     #Ask for the user choice
-    level_choice = input("> ")
+    level_choice = input("> \n")
     
     #Whatever level they choose (1-5) will return the name of the GoogleSheet that the words are stored on
     if level_choice == "1":
@@ -272,7 +272,7 @@ def play_game(random_word, definition):
         print(hangman_art[len(incorrect_guesses)])
         
         #Get user's guess and convert to lowercase
-        guess = input("\nGuess a letter: ").lower()
+        guess = input("\nGuess a letter: \n").lower()
         
         #Check if guess is valid
         #Make sure the guess is one character long and is not a number
