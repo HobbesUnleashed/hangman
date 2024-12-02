@@ -310,7 +310,7 @@ def play_game(random_word, definition):
                 #Print the hangman_art of this length -1 to match the array
                 print(hangman_art[-1])
                 #Print the following messages so the user knows the game is lost, what the word is and the definition of it
-                print(f"\nGame over! You ran out of lives.\n The word was: {random_word}")
+                print(f"\nGame over! You ran out of lives.\nThe word was: {random_word}")
                 print(f'The definition of this word is: {definition}')
                 break
 
