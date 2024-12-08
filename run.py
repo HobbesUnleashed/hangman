@@ -123,10 +123,10 @@ def help():
     '''
 
     print("\nThe objective of the game is to guess the word before you run out of lives.")
-    print("You can guess a letter or the whole word.")
+    print("You can only guess a letter at a time.")
     print("If you guess a letter that is in the word, it will be revealed.")
     print("If you guess a letter that is not in the word, you will lose a life.")
-    print("You will not be able to guess the same letter twice - and you will not lose a life for trying to do so")
+    print("You will not be punished for guessing the same letter twice")
     print("If you guess the word correctly, you win!")
     print("If you guess the word incorrectly, you lose!")
     print("You have 6 lives. Good luck!")
@@ -271,7 +271,7 @@ def play_game(level):
     
     #Give the user the chance to play again, change level or exit
     while True:
-        choice = input("\nWould you like to play again at the same level (P), return to level select (L) or exit the game (E)?\n> \n").upper()
+        choice = input("\nWould you like to play again at the same level (P),\nReturn to level select (L) or\nExit the game (E)?\n> \n").upper()
         
         if choice == "P":
             new_random_word, new_definition = get_new_random_word_and_definition(level)
@@ -284,7 +284,7 @@ def play_game(level):
             print("\nThank you for playing. Goodbye :)")
             exit()
         else:
-            print("\nInvalid input. Please enter 'P' to play again or 'L' to return to level select or 'E' to exit the game")
+            print("\nInvalid input.\nEnter 'P' - play again\nEnter 'L' to return to level select\nEnter 'E' to exit the game")
 
 def main():
     intro()
