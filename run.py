@@ -15,17 +15,14 @@ SHEET = GSPREAD_CLIENT.open('hangman')
 
 #Intro-art generated from https://patorjk.com/software/taag/#p=display&c=vb&f=Blocks&t=Hangman
 intro_art = '''
-   .----------------.  .----------------.  .-----------------. .----------------.  .----------------.  .----------------.  .-----------------.
-  | .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. |
-  | |  ____  ____  | || |      __      | || | ____  _____  | || |    ______    | || | ____    ____ | || |      __      | || | ____  _____  | |
-  | | |_   ||   _| | || |     /  \     | || ||_   \|_   _| | || |  .' ___  |   | || ||_   \  /   _|| || |     /  \     | || ||_   \|_   _| | |
-  | |   | |__| |   | || |    / /\ \    | || |  |   \ | |   | || | / .'   \_|   | || |  |   \/   |  | || |    / /\ \    | || |  |   \ | |   | |
-  | |   |  __  |   | || |   / ____ \   | || |  |\ \| |   | || | | |    ____  | || |  | |\  /| |  | || |   / ____ \   | || |  | |\ \| |   | |
-  | |  _| |  | |_  | || | _/ /    \ \_ | || | _| |_\   |_  | || | \ `.___]  _| | || | _| |_\/_| |_ | || | _/ /    \ \_ | || | _| |_\   |_  | |
-  | | |____||____| | || ||____|  |____|| || ||_____|\____| | || |  `._____.'   | || ||_____||_____|| || ||____|  |____|| || ||_____|\____| | |
-  | |              | || |              | || |              | || |              | || |              | || |              | || |              | |
-  | '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' |
-   '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------' 
+           _______ _       _______ _______ _______ _       
+  |\     /(  ___  | (    /(  ____ (       |  ___  | (    /|
+  | )   ( | (   ) |  \  ( | (    \/ () () | (   ) |  \  ( |
+  | (___) | (___) |   \ | | |     | || || | (___) |   \ | | 
+  |  ___  |  ___  | (\ \) | | ____| |(_)| |  ___  | (\ \) |
+  | (   ) | (   ) | | \   | | \_  ) |   | | (   ) | | \   |
+  | )   ( | )   ( | )  \  | (___) | )   ( | )   ( | )  \  |
+  |/     \|/     \|/    )_|_______)/     \|/     \|/    )_)
 '''
 
 #Hangman_art copied from https://gist.github.com/chrishorton/8510732aa9a80a03c829b09f12e20d9c
@@ -38,7 +35,7 @@ hangman_art = [
           |
           |
     =========
-    You have 6 lives remaining''', '''
+    You have 6 lives remaining\n''', '''
       +---+
       |   |
       O   |
@@ -46,7 +43,7 @@ hangman_art = [
           |
           |
     =========
-    You have 5 lives remaining''', '''
+    You have 5 lives remaining\n''', '''
       +---+
       |   |
       O   |
@@ -54,7 +51,7 @@ hangman_art = [
           |
           |
     =========
-    You have 4 lives remaining''', '''
+    You have 4 lives remaining\n''', '''
       +---+
       |   |
       O   |
@@ -62,7 +59,7 @@ hangman_art = [
           |
           |
     =========
-    You have 3 lives remaining''', '''
+    You have 3 lives remaining\n''', '''
       +---+
       |   |
       O   |
@@ -70,7 +67,7 @@ hangman_art = [
           |
           |
     =========
-    You have 2 lives remaining''', '''
+    You have 2 lives remaining\n''', '''
       +---+
       |   |
       O   |
@@ -78,7 +75,7 @@ hangman_art = [
      /    |
           |
     =========
-    You have 1 life remaining''', '''
+    You have 1 life remaining\n''', '''
       +---+
       |   |
       O   |
@@ -86,7 +83,7 @@ hangman_art = [
      / \\  |
           |
     =========
-    You have been hanged!'''
+    You have been hanged!\n'''
 ]
 
 def intro():
@@ -98,17 +95,29 @@ def intro():
     print(intro_art)
     #Print a blurb to the game
     print("\nA game in which you guess the letters in a word in order to stay alive!!")
+
+    #Function to get valid input (Y/N)
+    def get_valid_input(prompt, error_message):
+        while True:
+            user_input = input(prompt).upper()
+            if user_input in ["Y", "N"]:
+                return user_input
+            else:
+                print(error_message)
+
     #Ask if the user would like to play
-    print("\nWould you like to play? (Y/N)")
+    print("\nWould you like to play? (Y/N)\n")
     #Receive the user input and convert it to uppercase
-    play = input("> \n").upper()
+    play = get_valid_input("> \n","\nInvalid input. Please enter 'Y' or 'N'.\nWould you like to play?")
+    #play = input("> \n").upper()
     #If the user selects Y for yes
     if play == "Y":
         #Print the following messages - including an option to see the rules
-        print("\nGreat! Let's play!")
-        print("\nWould you like to see the rules? (Y/N)") 
+        print("\nGreat! Let's play!\n")
+        print("\nWould you like to see the rules? (Y/N)\n") 
         #Receive the input regarding the rules and convert to uppercase
-        rules = input("> \n").upper()
+        rules = get_valid_input("> \n", "\nInvalid input. Please enter 'Y' or 'N'.\nWould you like to see the rules?")
+        #rules = input("> \n").upper()
         #If the user selects Y for yes
         if rules == "Y":
             #Run the help function which details the rules
@@ -117,15 +126,16 @@ def intro():
         else:
             #Print this message and load the next function from main()
             print("\nOkay, let's play!")
+
     #If user selects N for no in relation to playing the game
     elif play == "N":
         #Print this message and then exit the runtime
         print("\nOkay, maybe next time!")
         exit()
     #Otherwise - any other input will receive this message and the intro() function will begin again
-    else:
+    '''else:
         print("\nInvalid input. Please try again.\n")
-        intro()
+        intro()'''
 
 def help():
     '''
@@ -158,19 +168,19 @@ def level_select():
     #Whatever level they choose (1-5) will return the name of the GoogleSheet that the words are stored on
     if level_choice == "1":
         print("You have selected Simple\n")
-        return "simple"
+        play_game("simple")
     elif level_choice == "2":
         print("You have selected Easy\n")
-        return "easy"
+        play_game("easy")
     elif level_choice == "3":
         print("You have selected Intermediate\n")
-        return "intermediate"
+        play_game("intermediate")
     elif level_choice == "4":
         print("You have selected Hard\n")
-        return "hard"
+        play_game("hard")
     elif level_choice == "5":
         print("You have selected Expert\n")
-        return "expert"
+        play_game("expert")
     #If an option outside of numbers 1-5 is selected the error message is displayed and the level_select() function is re-run
     else:
         print("Invalid input. Please try again.\n")
@@ -244,17 +254,25 @@ def display_dashes(word, correct_guesses):
     #Returns the word without any spaces in it for final display
     return display.strip()
 
-def play_game(random_word, definition):
+def play_game(level):
     '''
     Play the hangman game with the given random word.
     
     Args:
-        random_word (str): The word to be guessed by the user.
-        definition (str): The definition of the word to be displayed to the user.
+        level (str): The difficulty level selected by the user.
         
     Returns:
         None
     '''
+
+    #Function to get a new random word and definition
+    def get_new_random_word_and_definition(level):
+        random_word = get_random_word(level)
+        definition = get_definition(level, random_word)
+        return random_word, definition
+
+    #Get the initial random word and definition
+    random_word, definition = get_new_random_word_and_definition(level)
 
     #Local variables to store an array of values as labelled
     correct_guesses = []
@@ -270,6 +288,11 @@ def play_game(random_word, definition):
         #Uses the array of hangman_art and references against the number of incorrect guesses
         #Then displays the index number of hangman_art that matches the number of incorrect guesses - this comes from later in function
         print(hangman_art[len(incorrect_guesses)])
+
+        if incorrect_guesses != []:
+            print(f'You have already guessed {incorrect_guesses}')
+        else:
+            print('\n')
         
         #Get user's guess and convert to lowercase
         guess = input("\nGuess a letter: \n").lower()
@@ -313,6 +336,24 @@ def play_game(random_word, definition):
                 print(f"\nGame over! You ran out of lives.\nThe word was: {random_word}")
                 print(f'The definition of this word is: {definition}')
                 break
+    
+    # Ask the user if they want to play again or return to level select or exit
+    while True:
+        print("\nWould you like to play again at the same level (P), return to level select (L) or exit the game (E)?")
+        choice = input("> \n").upper()
+        if choice == "P":
+            #Select a new random word and definition
+            new_random_word, new_definition = get_new_random_word_and_definition(level)
+            play_game(level)
+            break
+        elif choice == "L":
+            level_select()
+            break
+        elif choice == "E":
+            print("\nThank you for playing. Goodbye :)")
+            exit()
+        else:
+            print("\nInvalid input. Please enter 'P' to play again or 'L' to return to level select or 'E' to exit the game")
 
 def main():
     #Run the introduction and associated artwork - ask the initial questions of Play? and Rules?
@@ -326,7 +367,7 @@ def main():
     #Function is passed the level/GoogleSheet and the word from it
     definition = get_definition(selected_level, random_word)
     #Function to run the game and receives the random word and it's definition
-    play_game(random_word, definition)
+    play_game(selected_level)
 
 #Runs the main() function which holds and activates the other program functions as needed
 main()
