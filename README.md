@@ -6,7 +6,7 @@ Once the game has started, the user is prompted to guess a letter, and if they a
 
 Overall, Hangman is a fun and challenging game that requires both guessing skills and vocabulary knowledge, making it a great way to test your abilities and have fun at the same time.
 
-![Home Screen](     )
+![Home Screen](/readme_images/intro.png)
 
 [View Hangman live project here](https://hangmansl-6787a9f8901b.herokuapp.com/)
 - - -
