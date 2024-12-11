@@ -276,7 +276,7 @@ def play_game(level):
 
             if all(letter in correct_guesses for letter in random_word):
                 print(f"\nCongratulations!\nYou guessed the word: "
-                      "{random_word}")
+                      f"{random_word}")
                 print(f'The definition of this word is: {definition}')
                 break
         else:
@@ -286,7 +286,7 @@ def play_game(level):
             if len(incorrect_guesses) >= 6:
                 print(hangman_art[-1])
                 print(f"\nGame over! You ran out of lives.\nThe word was: "
-                      "{random_word}")
+                      f"{random_word}")
                 print(f'The definition of this word is: {definition}')
                 break
 
