@@ -44,7 +44,7 @@ You will then have to guess the letters in the chosen word before the hangman is
 
 ## Logic flowchart
 
-![Flowchart](      )
+![Flowchart](/readme_images/flowchart.png)
 
 ## User Experience (UX)
 
@@ -89,44 +89,69 @@ Hangman is a classic word guessing game that provides a simple yet entertaining 
 * Intro screen
     * Displays logo and a welcome message.
 
-![Intro Screen](        )
+![Intro Screen](/readme_images/intro.png)
 
 * Rules
     * User can choose to display rules or skip them using "y" or "n".
 
-![Rules](       )
+![Rules](/readme_images/rules.png)
 
 * Introduction message and difficulty setting
 
-![Difficulty Setting](       )
+![Difficulty Setting](/readme_images/level_select.png)
 
 * Prompt user to make a guess
 
-![Guess a letter](         )
+![Guess a letter](/readme_images/guess_letter.png)
+
+* Current word
+    * Displays the length of the current word.
+
+![Current word](/readme_images/current_word.png)
 
 * Correct Guess
     * If letter is guessed, "Correct" message displays.
 
-![Correct guess](         )
+![Correct guess](/readme_images/correct_guess.png)
+
+* Correct Guesses
+    * If letter is guessed correctly, it displays as such.
+
+![Correct guesses](/readme_images/correct_guesses.png)
 
 * Incorrect Guess
     * If letter is not guessed, "Incorrect" message displays.
 
-![Incorrect guess] (             )
+![Incorrect guess](/readme_images/incorrect_guess.png)
+
+* Incorrect Guesses
+    * If letter is guessed incorrectly, it displays as such.
+
+![Correct guesses](/readme_images/incorrect_guesses.png)
 
 * User guesses the word correctly
     * Message that confirms hangman is beaten.
 
-![Won game](           )
+![Won game](/readme_images/full_word.png)
 
 * User is out of guesses
     * Message that confirms a lost game.
 
-![Lose](           )
+![Lose](/readme_images/wrong_word.png)
 
 * Play again, choose level or exit
 
-![Play again](          )
+![Play again](/readme_images/play_again.png)
+
+* Google sheets layout
+    * The layout of the google sheets.
+
+![Google sheets layout](/readme_images/gs_example.png)
+
+* Google sheets tabs
+    * The individual worksheets of the Google sheets.
+
+![Google sheets tabs](/readme_images/gs_sheets.png)
 
 ## Features Left to Implement
 
@@ -171,13 +196,13 @@ Hangman is a classic word guessing game that provides a simple yet entertaining 
 
 ## Testing 
 
-CI Python Linter was used to test run.py, colors.py and hangman_art_words.py
+CI Python Linter was used to test run.py.
 
 <details>
 <summary> run.py CI Python Linter check
 </summary>
 
-![run.py linter check](         )
+![run.py linter check](/readme_images/linter.png)
 </details>
 
 ## Manual Testing
@@ -188,46 +213,54 @@ The game was manually tested extensively using codeanywhere terminal, and once t
 
 | Feature | Expected Result | Steps Taken | Actual Result | Screenshot |
 | ------- | -------------- | ----------- | ------------- | ---------- |
-| Intro Screen   | To display logo and welcome message | None | As Expected | ![Intro Screen](        ) |
-| Display Rules | To display rules or skip them using either "y" or "n" | Input "y" to display, input "n" to skip | As Expected | ![Display rules](         ) |
-| Select Difficulty   | To retrieve word from the selected difficulty option | Input simple, easy, intermediate, hard or expert | As Expected | ![Difficulty](           ) |
-| Guess a letter   | Prompts user to guess a letter | Input a letter guess | As Expected | ![Guess a letter](           ) |
-| Guess Correct   | To display correct, gallows with no penalty applied, a list of already guessed letters and updated hidden word | Guessed a correct letter | As Expected | ![Guess correct](           ) |
-| Guess Incorrect   | To display incorrect, gallows with penalty applied, a list of already guessed letters and updated hidden word | Guessed an incorrect letter | As Expected | ![Guess incorrect](          ) |
-| Guess Invalid   | To display a message saying to input a single letter | Invalid input such as e.g too many letters or a number | As Expected | ![Guess invalid](          ) |
-| Guessed Already   | To display a message saying guessed already | Input a letter that was already tried  | As Expected | ![Guess invalid](       ) |
-| Hangman gallows   | To display and update hangman gallows | Input a letter guess  | As Expected | ![Gallows](        ) |
-| Win   | To display win message | Guess the word in less than six tries | As Expected | ![Win game](         ) |
-| Lose   | To display lose message | Fail to guess the word in six tries | As Expected | ![Lose game](          ) |
-| Play Again   | To display play again | Choose "p" for new game, "l" for level selection or "e" to exit the game | As Expected | ![Play again](          ) |
-| Google Sheets   | To access words for various levels | Not accessed directly in the game | As Expected | ![Google Sheets](          ) |
+| Intro Screen   | To display logo and welcome message | None | As Expected | ![Intro Screen](/readme_images/intro.png) |
+| Display Rules | To display rules or skip them using either "y" or "n" | Input "y" to display, input "n" to skip | As Expected | ![Display rules](/readme_images/rules.png) |
+| Select Difficulty   | To retrieve word from the selected difficulty option | Input "1", "2", "3", "4" or "5" according to the level required | As Expected | ![Difficulty](/readme_images/level_select.png) |
+| Guess a letter   | Prompts user to guess a letter | Input a letter guess | As Expected | ![Guess a letter](/readme_images/guess_letter.png) |
+| Guess Correct   | To display correct, gallows with no penalty applied, a list of already guessed letters and updated hidden word | Guessed a correct letter | As Expected | ![Guess correct](/readme_images/correct_guess.png) |
+| Correct Guesses   | To display the correctly guessed letters | Guessed a correct letter | As Expected | ![Guess correct](/readme_images/correct_guesses.png) |
+| Guess Incorrect   | To display incorrect, gallows with penalty applied, a list of already guessed letters and updated hidden word | Guessed an incorrect letter | As Expected | ![Guess incorrect](/readme_images/incorrect_guess.png) |
+| Incorrect Guesses   | To display the incorrectly guessed letters | Guessed an incorrect letter | As Expected | ![Guess incorrect](/readme_images/incorrect_guesses.png) |
+| Guess Invalid   | To display a message saying to input a single letter | Invalid input such as e.g too many letters or a number | As Expected | ![Guess invalid](/readme_images/invalid_guess.png) |
+| Guessed Already   | To display a message saying guessed already | Input a letter that was already tried  | As Expected | ![Guess invalid](/readme_images/already_guessed.png) |
+| Hangman gallows   | To display and update hangman gallows | Input a letter guess  | As Expected | ![Gallows](/readme_images/gallows.png) |
+| Win   | To display win message | Guess the word in less than six tries | As Expected | ![Win game](/readme_images/full_word.png) |
+| Lose   | To display lose message | Fail to guess the word in six tries | As Expected | ![Lose game](/readme_images/wrong_word.png) |
+| Play Again   | To display play again | Choose "p" for new game, "l" for level selection or "e" to exit the game | As Expected | ![Play again](/readme_images/play_again.png) |
+| Google Sheets   | To access words for various levels | Not accessed directly in the game | As Expected | ![Google Sheets](/readme_images/gs_example.png) |
 
 ## Input validation testing
+
+* Start a game
+    * Cannot continue with an empty input
+    * Must be a "y" or "n"
+
+![Start a game](/readme_images/invalid_y_or_n.png)
 
 * Display rules
     * Cannot continue with empty input
     * Must be "y" or "n"
 
-![Rules validation](          )
+![Rules validation](/readme_images/invalid_y_or_n.png)
 
 * Select difficuly
     * Cannot continue with empty input
     * Must be "1" for simple, "2" for easy, "3" for intermediate, "4" for hard or "5" for expert
 
-![Difficulty validation](            )
+![Difficulty validation](/readme_images/invalid_number.png)
 
 * Guess a letter
     * Cannot continue with empty input
     * Must be a single letter
     * Must be a letter
 
-![Letter validation](         )
+![Letter validation](/readme_images/invalid_guess.png         )
 
 * Play again
     * Cannot continue with empty input
     * Must be "p", "l" or "e"
 
-![Play again validation](            )
+![Play again validation](/readme_images/invalid_ple.png)
 
 ## Fixed Bugs
 
@@ -251,7 +284,7 @@ To deploy with Heroku, Code Institute Python Essentials Template was used so the
 9. Scroll to the top and select "Deploy" tab
 10. Select GitHub as deployment method and search for your repository and link them together
 11. Scroll down and select either "Enable Automatic Deploys" or "Manual Deploy"
-12. Deployed site [Hangman](           )
+12. Deployed site [Hangman](https://hangmansl-6787a9f8901b.herokuapp.com/)
 
 ### Forking the GitHub Repository
 
