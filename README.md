@@ -74,7 +74,7 @@ Hangman is a classic word guessing game that provides a simple yet entertaining 
 ## Features
 
 * Word selection. The game randomly selects a word from one of the five available predefined lists of words.
-* Difficulty settings. The game offers three difficulty settings, simple, easy, intermediate, hard and expert.
+* Difficulty settings. The game offers five difficulty settings, simple, easy, intermediate, hard and expert.
 * Words are stored in a Google Sheet, each level of difficulty on a sheet of their own.
 * Visual interface. Appealing interface that is easy to navigate and understand.
 * Letter input. User can input their guess letter by letter to guess the hidden word.
@@ -82,7 +82,7 @@ Hangman is a classic word guessing game that provides a simple yet entertaining 
 * Win or loss detection. Detect when the player has either successfully guessed the entire word or made too many incorrect guesses and lost the game.
 * Play again at the end of the game - either at the same level of difficulty or choose another level.
 * Google sheets storing the selection of words and definitions, broken into separate worksheets for differing levels.
-* [View Google sheets here] (https://docs.google.com/spreadsheets/d/1vXybG0I9jpkprSMuWqsz2x6YCyv8aFziE9TtcZA-gNc/edit?usp=sharing)
+* [View Google sheets here](https://docs.google.com/spreadsheets/d/1vXybG0I9jpkprSMuWqsz2x6YCyv8aFziE9TtcZA-gNc/edit?usp=sharing)
 
 ### Existing Features
 
@@ -207,7 +207,7 @@ CI Python Linter was used to test run.py.
 
 ## Manual Testing
 
-The game was manually tested extensively using codeanywhere terminal, and once the website was deployed on Heroku it was manually tested again, during the creation of the code to the end. Testing of rules display, select difficulty input validation, gallows ASCII image display, correct and incorrect answers and finally win or lose display, play again and change level features.
+The game was manually tested extensively using codeanywhere terminal, and once the website was deployed on Heroku it was manually tested again, during the creation of the code to the end. Testing of rules display, select difficulty, input validation, gallows ASCII image display, correct and incorrect answers and finally win or lose display, play again and change level features.
 
 
 
@@ -256,7 +256,7 @@ The game was manually tested extensively using codeanywhere terminal, and once t
 
 ![Letter validation](/readme_images/invalid_guess.png         )
 
-* Play again
+* Play again, level select or exit
     * Cannot continue with empty input
     * Must be "p", "l" or "e"
 
@@ -265,7 +265,7 @@ The game was manually tested extensively using codeanywhere terminal, and once t
 ## Fixed Bugs
 
 * There is a warning notice that informs the user that there is just one chance remaining if he reaches his fifth guess before attempting to use a last guess. This meant that even if the user correctly identified the final letter after receiving a warning after his fifth guess and so winning the game, the warning message would still appear.
-* This bug was fixed in the play_game function which was refactored to keep track of the is_game_won function in the code that runs the warning, final chance message, which can be found in the commits history.
+* This bug was fixed in the Hangman_art ASCII images, and incorporates a warning for the number of lives remaining at every stage.
 * This bug was indentified by playing the game multiple times and trying to get to all possible outcomes that a user might experience while playing the game.
 
 ## Deployment
@@ -296,7 +296,7 @@ By forking the repository, we make a copy of the original repository on our GitH
 
 ### Local Clone
 
-1. Log in to GitHub and locate [GitHub Repository hangman] (https://github.com/HobbesUnleashed/hangman)
+1. Log in to GitHub and locate [GitHub Repository hangman](https://github.com/HobbesUnleashed/hangman)
 2. Under the repository name click "Clone or download"
 3. Click on the code button, select clone with HTTPS, SSH or GitHub CLI and copy the link shown.
 4. Open Git Bash
@@ -309,7 +309,6 @@ By forking the repository, we make a copy of the original repository on our GitH
 ### Code
 
 * I gained understanding of python through code institute lessons.
-* I gained more python concepts through Python for begginers written by Brady Ellison.
 * Python 3.11.3 documentation.
 * MDN web docs for python [Documentation](https://developer.mozilla.org/en-US/docs/Glossary/Python).
 
@@ -317,6 +316,7 @@ By forking the repository, we make a copy of the original repository on our GitH
 
 * Hangman game.
 * All content was written by the developer.
+* ASCII art for the title was created at [Patorjk.com](https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20)
 
 ## Acknowledgements
 
